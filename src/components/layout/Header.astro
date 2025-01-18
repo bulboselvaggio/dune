@@ -25,29 +25,15 @@ const links = [
 
 <header
   x-data="{ open: false }"
-  class="transition"
-  :class="{ 'bg-primary-500/10 dark:bg-primary-400/10': open, 'bg-primary-50 dark:bg-primary-950': !(open) }"
+  class="absolute top-0 left-0 w-full z-50 transition"
+  :class="{
+    'bg-primary-500/70 backdrop-blur-md dark:bg-primary-400/70': open || window.scrollY > 10,
+    'bg-transparent': !(open || window.scrollY > 10)
+  }"
 >
   <div
-    class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
+    class="mx-auto flex max-w-2xl items-center justify-end px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
   >
-    <!-- Brand logo -->
-    <div class="flex">
-      <a
-        href="/"
-        class="focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 rounded-md focus-visible:outline focus-visible:outline-2"
-      >
-        <span class="sr-only">Stone</span>
-        <img
-          class="h-8 w-auto"
-          width="65"
-          height="40"
-          :src="$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
-          alt="Stone"
-        />
-      </a>
-    </div>
-
     <!-- Actions -->
     <div class="-mr-2 flex items-center space-x-2 sm:space-x-3">
       <!-- Toggle theme mode -->
@@ -159,15 +145,6 @@ const links = [
                   <span class="text-xs">{link.ref}</span>
                   <span class="group-hover:underline">{link.name}</span>
                 </div>
-                <svg
-                  class="text-primary-600 dark:text-primary-400 h-6 w-6 sm:h-8 sm:w-8"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                </svg>
               </div>
             </a>
           ))

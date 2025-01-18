@@ -1,0 +1,107 @@
+---
+// Importa le immagini da Storyblok
+const heroImages = {
+  desktop: "https://a.storyblok.com/f/297215/3000x1780/51b29b69c3/dune70-hero-desk.jpg",
+  mobile: "https://a.storyblok.com/f/297215/720x1136/d7e1eb8244/dune70-hero-mobile.jpg",
+};
+---
+
+<section class="hero">
+  <!-- Immagini Responsive -->
+  <picture>
+    <source srcset={`${heroImages.desktop}/m/1920x`} media="(min-width: 1024px)" type="image/webp">
+    <source srcset={`${heroImages.mobile}/m/768x`} media="(max-width: 1023px)" type="image/webp">
+    <img
+      src={`${heroImages.desktop}/m/1920x`} 
+      alt="Dune 70 Hero"
+      class="hero-image"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Contenuto del Hero -->
+  <div class="hero-content">
+    <p class="hero-subtitle">PROSSIMAMENTE AL CINEMA</p>
+    <button
+      class="hero-button"
+      onclick="document.querySelector('.hero-anchor').scrollIntoView({ behavior: 'smooth' });"
+    >
+      Watch Trailer
+    </button>
+  </div>
+</section>
+
+<style is:global>
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Riempie l'intero viewport */
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 5%; /* Più vicino al margine inferiore */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.hero-button {
+  background-color: #70281a; /* Colore sfondo */
+  border: 1px solid #eba561; /* Bordo */
+  color: #FFFFFF; /* Testo bianco */
+  width: 100%;
+  max-width: 220px;
+  height: 2.6rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 7px 3vh;
+  border-radius: 30px; /* Bordo arrotondato */
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #5a2016; /* Colore più scuro al hover */
+  transform: scale(1.05); /* Leggera animazione al hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-button {
+    font-size: 0.875rem;
+  }
+}
+</style>
