@@ -1,8 +1,8 @@
 ---
 // Importa le immagini da Storyblok
 const heroImages = {
-  desktop: "https://a.storyblok.com/f/297215/3000x1780/51b29b69c3/dune70-hero-desk.jpg",
-  mobile: "https://a.storyblok.com/f/297215/720x1136/d7e1eb8244/dune70-hero-mobile.jpg",
+  desktop: "https://a.storyblok.com/f/297215/3000x1780/e50dc68656/dune70-hero-desktop.webp",
+  mobile: "https://a.storyblok.com/f/297215/720x1136/0d1882beb4/dune70-hero-mobile.webp",
 };
 ---
 
@@ -21,7 +21,7 @@ const heroImages = {
 
   <!-- Contenuto del Hero -->
   <div class="hero-content">
-    <p class="hero-subtitle">PROSSIMAMENTE AL CINEMA</p>
+    <p class="hero-subtitle">PROSSIMAIMENTE AL CINEMA</p>
     <button
       class="hero-button"
       onclick="document.querySelector('.hero-anchor').scrollIntoView({ behavior: 'smooth' });"
@@ -42,8 +42,8 @@ const heroImages = {
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover; /* Ritaglia l'immagine per coprire l'intero spazio */
+  object-position: top; /* Mantiene il focus in alto */
   position: absolute;
   top: 0;
   left: 0;

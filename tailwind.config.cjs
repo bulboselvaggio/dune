@@ -6,6 +6,14 @@ module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
+    extend: {
+      colors: {
+        primary: {
+          ...colors.stone, // Mantieni la palette di colori stone
+          950: '#000000',  // Aggiungi un nero puro per primary-950
+        },
+      },
+    },
     colors: {
       current: 'currentColor',
       transparent: 'transparent',
