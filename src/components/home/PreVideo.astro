@@ -1,0 +1,52 @@
+---
+import Video from '../shared/Video.jsx';
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col items-center gap-12 sm:gap-16">
+      <!-- Titolo e Descrizione Centrati -->
+      <div class="flex flex-col items-center gap-4 sm:gap-6 py-16 lg:py-64">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">
+          2070
+        </h2>
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl text-center text-white">
+          La Terra è un deserto sotto il controllo dell'Intelligenza Artificiale che ha un solo obiettivo...
+        </h1>
+      </div>
+
+      <!-- Punto di Ancoraggio -->
+      <div id="hero-video-anchor"></div>
+
+      <!-- Video Island -->
+      <Video client:visible />
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .aspect-w-16 {
+    aspect-ratio: 16 / 9;
+  }
+  .aspect-h-9 {
+    aspect-ratio: 16 / 9;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[onclick]').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = button.getAttribute('onclick').match(/['"]#(.*?)['"]/)[1];
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const offset = -50; // Offset desiderato in px
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+      }
+    });
+  });
+</script>
