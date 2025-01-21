@@ -48,6 +48,8 @@ const PhotoSwipeGallery = ({ posters }) => {
                 <img
                   src={`${baseSrc}/m/600x900/filters:format(webp)`}
                   alt={poster.alt}
+                  width="600" // Larghezza esplicita
+                  height="900" // Altezza esplicita
                   className="w-full h-auto object-cover"
                   loading={index > 2 ? 'lazy' : 'eager'}
                 />
