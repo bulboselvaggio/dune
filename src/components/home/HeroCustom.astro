@@ -42,8 +42,8 @@ const heroImages = {
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ritaglia l'immagine per coprire l'intero spazio */
-  object-position: top; /* Mantiene il focus in alto */
+  object-fit: cover;
+  object-position: top;
   position: absolute;
   top: 0;
   left: 0;
@@ -52,7 +52,7 @@ const heroImages = {
 
 .hero-content {
   position: absolute;
-  bottom: 5%; /* Più vicino al margine inferiore */
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -70,28 +70,29 @@ const heroImages = {
 }
 
 .hero-button {
-  background-color: #70281a; /* Colore sfondo */
-  border: 1px solid #eba561; /* Bordo */
-  color: #FFFFFF; /* Testo bianco */
-  width: 100%;
-  max-width: 220px;
-  height: 2.6rem;
+  background-color: #70281a;
+  border: 1px solid #eba561;
+  color: #FFFFFF;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  margin: 0 7px 3vh;
-  border-radius: 30px; /* Bordo arrotondato */
-  cursor: pointer;
-  font-weight: 400;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
+  font-weight: 500;
+  border-radius: 9999px;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 1.5rem; /* Aggiunto margine inferiore */
 }
 
 .hero-button:hover {
-  background-color: #5a2016; /* Colore più scuro al hover */
-  transform: scale(1.05); /* Leggera animazione al hover */
+  background-color: #5a2016; /* Cambia solo il colore al hover */
+}
+
+.hero-button:focus-visible {
+  outline: 2px solid #eba561;
+  outline-offset: 2px;
 }
 
 /* Media Queries */
@@ -102,6 +103,7 @@ const heroImages = {
 
   .hero-button {
     font-size: 0.875rem;
+    padding: 0.5rem 1rem;
   }
 }
 </style>

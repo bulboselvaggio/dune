@@ -31,7 +31,7 @@ const Video = () => {
           loading="lazy"
         ></iframe>
       ) : (
-        <div className="flex items-center justify-center w-full h-full bg-gray-800 text-white">
+        <div className="flex items-center justify-center w-full h-full bg-gray-800 text-white text-lg">
           Video Loading...
         </div>
       )}
