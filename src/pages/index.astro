@@ -1,4 +1,5 @@
 ---
+// Importa i componenti necessari
 import About from '../components/home/About.astro';
 import Cta from '../components/home/Cta.astro';
 import Expertise from '../components/home/Expertise.astro';
@@ -7,6 +8,7 @@ import HeroVideo from '../components/home/HeroVideo.astro';
 import Services from '../components/home/Services.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/home/Gallery.astro';
 ---
 
 <Layout
@@ -15,9 +17,10 @@ import Layout from '../layouts/Layout.astro';
 >
   <HeroCustom />
   <HeroVideo />
+  <About />
+  <Gallery />
   <Services />
   <Expertise />
-  <About />
   <Testimonials />
   <Cta />
 </Layout>

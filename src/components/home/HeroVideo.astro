@@ -1,16 +1,14 @@
 <section class="py-16 sm:py-64">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="flex flex-col gap-1">
-      <!-- Titolo e Descrizione -->
-      <div class="flex flex-col items-start gap-8 sm:gap-10">
-        <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
-          <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
-            2070
-          </h1>
-          <h3 class="text-xl font-medium sm:text-2xl">
-            La Terra è un deserto sotto il controllo dell'Intelligenza Artificiale che ha un solo obiettivo...
-          </h3>
-        </div>
+    <div class="flex flex-col items-center gap-12 sm:gap-16">
+      <!-- Titolo e Descrizione Centrati -->
+      <div class="flex flex-col items-center gap-4 sm:gap-6">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">
+          2070
+        </h2>
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl text-center text-white">
+          La Terra è un deserto sotto il controllo dell'Intelligenza Artificiale che ha un solo obiettivo...
+        </h1>
       </div>
       
       <!-- Punto di Ancoraggio -->
@@ -19,18 +17,20 @@
       <!-- Video Vimeo Embeddato -->
       <div class="aspect-w-16 aspect-h-9 w-full rounded-3xl overflow-hidden">
         <iframe
-          class="w-full h-full"
-          src="https://player.vimeo.com/video/1048620180?badge=0&autopause=0&player_id=0&app_id=58479"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-          style="border: none;"
-          title="Dune 70 - Trailer Ufficiale AI"
-        ></iframe>
+        class="w-full h-full"
+        src="https://player.vimeo.com/video/1048620180?badge=0&autopause=0&player_id=0&app_id=58479"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        style="border: none;"
+        title="Dune 70 - Trailer Ufficiale AI"
+        loading="lazy"
+      ></iframe>    
       </div>
     </div>
   </div>
 </section>
 
 <style is:global>
+/* Proporzioni del player */
 .aspect-w-16 {
   aspect-ratio: 16 / 9;
 }

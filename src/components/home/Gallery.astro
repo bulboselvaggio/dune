@@ -1,0 +1,32 @@
+---
+import PhotoSwipeGallery from '../shared/PhotoSwipeGallery.jsx';
+
+// Dati per la gallery
+const posters = [
+  {
+    title: 'Dune70 Locandina',
+    src: 'https://a.storyblok.com/f/297215/1792x2560/b60a9f61df/dune70-locandina.jpg',
+    alt: 'Dune70 Locandina',
+  },
+  {
+    title: 'Dune70 Locandina 2',
+    src: 'https://a.storyblok.com/f/297215/1792x2560/b60a9f61df/dune70-locandina.jpg',
+    alt: 'Dune70 Locandina 2',
+  },
+  {
+    title: 'Dune70 Locandina 3',
+    src: 'https://a.storyblok.com/f/297215/1792x2560/b60a9f61df/dune70-locandina.jpg',
+    alt: 'Dune70 Locandina 3',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Gallery</h2>
+      <!-- Idratazione del componente React -->
+      <PhotoSwipeGallery posters={posters} client:visible />
+    </div>
+  </div>
+</section>
