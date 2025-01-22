@@ -61,9 +61,14 @@ const Video = () => {
   return (
     <div
       id="lazy-video"
-      className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden border"
+      className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden border border-primary-500 dark:border-primary-400 relative"
     >
-      {iframeLoaded ? (
+      {!iframeLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-900 text-white text-lg">
+          Video Loading...
+        </div>
+      )}
+      {iframeLoaded && (
         <iframe
           ref={iframeRef}
           className="w-full h-full"
@@ -73,7 +78,7 @@ const Video = () => {
           title="Dune 70 - Trailer Ufficiale AI"
           loading="lazy"
         ></iframe>
-      ) : null}
+      )}
     </div>
   );
 };
