@@ -26,5 +26,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "3.3.3"
+  },
+  "devDependencies": {
+    "@types/alpinejs__collapse": "^3.13.4"
   }
 }

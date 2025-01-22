@@ -16,7 +16,12 @@ import Video from '../shared/Video.jsx';
       </div>
 
       <!-- Punto di Ancoraggio -->
-      <div id="hero-video-anchor"></div>
+      <div id="hero-video-anchor" class="w-full">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-primary-950 dark:text-primary-200">
+          Trailer
+        </h2>
+      </div>
+
 
       <!-- Video Island -->
       <Video client:visible />
@@ -37,16 +42,23 @@ import Video from '../shared/Video.jsx';
   document.querySelectorAll('[onclick]').forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      const targetId = button.getAttribute('onclick').match(/['"]#(.*?)['"]/)[1];
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        const offset = -50; // Offset desiderato in px
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth',
-        });
+      const onclickAttr = button.getAttribute('onclick');
+      if (onclickAttr) {
+        const match = onclickAttr.match(/['"]#(.*?)['"]/);
+        if (match && match[1]) {
+          const targetId = match[1];
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const offset = -50; // Offset desiderato in px
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth',
+            });
+          }
+        }
       }
     });
   });
 </script>
+

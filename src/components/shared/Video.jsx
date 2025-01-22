@@ -61,7 +61,7 @@ const Video = () => {
   return (
     <div
       id="lazy-video"
-      className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden border border-primary-500 dark:border-primary-400"
+      className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden border"
     >
       {iframeLoaded ? (
         <iframe
