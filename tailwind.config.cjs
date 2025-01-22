@@ -10,8 +10,14 @@ module.exports = {
       colors: {
         primary: {
           ...colors.stone, // Mantieni la palette di colori stone
-          950: '#000000',  // Aggiungi un nero puro per primary-950
+          950: '#000000', // Aggiungi un nero puro per primary-950
         },
+        sand: {
+          DEFAULT: 'rgb(230, 230, 190)', // Colore sabbia personalizzato
+        },
+      },
+      fontWeight: {
+        semibold: 600, // Aggiunta di font-semibold
       },
     },
     colors: {
@@ -19,6 +25,7 @@ module.exports = {
       transparent: 'transparent',
       white: '#ffffff',
       primary: colors.stone,
+      sand: 'rgb(230, 230, 190)', // Integra il colore sabbia nella configurazione globale
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],

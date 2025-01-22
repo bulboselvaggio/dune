@@ -20,7 +20,7 @@ const Video = () => {
   }, []);
 
   return (
-    <div id="lazy-video" className="aspect-w-16 aspect-h-9 w-full rounded-3xl overflow-hidden">
+    <div id="lazy-video" className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
       {isVisible ? (
         <iframe
           className="w-full h-full"

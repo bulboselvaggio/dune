@@ -1,6 +1,7 @@
 ---
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-600.css';
 import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
@@ -28,7 +29,7 @@ const { description, title } = Astro.props;
     <ClientRouter/>    
   </head>
   <body
-    class="bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition"
+    class="bg-sand text-primary-950 dark:bg-primary-950 dark:text-primary-200 antialiased transition"
   >
     <Header />
     <main>
@@ -47,25 +48,25 @@ const { description, title } = Astro.props;
       Alpine.plugin(collapse);
 
       Alpine.store('theme', {
-        init() {
-          this.isDark = (() => {
-            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-              return localStorage.getItem('theme') === 'dark';
-            }
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              return true;
-            }
-            return true;
-          })();
-        },
+      init() {
+        this.isDark = (() => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme') === 'dark';
+          }
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return false;
+          }
+          return false;
+        })();
+      },
 
-        isDark: true,
+      isDark: false,
 
-        toggle() {
-          this.isDark = !this.isDark;
-          localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
-        },
-      });
+      toggle() {
+        this.isDark = !this.isDark;
+        localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+      },
+    });
 
       window.Alpine = Alpine;
       Alpine.start();
