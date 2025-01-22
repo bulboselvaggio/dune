@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Video = () => {
-  const [isPlaying, setIsPlaying] = useState(false); // Stato per tracciare se il video è in play
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false); // Stato per tracciare se l'iframe è caricato
   const iframeRef = useRef(null);
 
   useEffect(() => {
@@ -25,8 +26,11 @@ const Video = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (entry.isIntersecting && !iframeLoaded) {
+          // Carica l'iframe quando entra nel viewport
+          setIframeLoaded(true);
+        }
         if (entry.isIntersecting) {
-          // Riprendi il video solo se è in stato di "play"
           if (isPlaying && iframeRef.current) {
             iframeRef.current.contentWindow.postMessage(
               '{"method":"play"}',
@@ -34,7 +38,6 @@ const Video = () => {
             );
           }
         } else {
-          // Metti in pausa il video se esce dallo schermo
           if (iframeRef.current) {
             iframeRef.current.contentWindow.postMessage(
               '{"method":"pause"}',
@@ -53,19 +56,24 @@ const Video = () => {
       observer.disconnect();
       window.removeEventListener('message', handleVimeoMessage);
     };
-  }, [isPlaying]);
+  }, [isPlaying, iframeLoaded]);
 
   return (
-    <div id="lazy-video" className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden">
-      <iframe
-        ref={iframeRef}
-        className="w-full h-full"
-        src="https://player.vimeo.com/video/1048620180?badge=0&autopause=0&player_id=0&app_id=58479"
-        allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-        style={{ border: 'none' }}
-        title="Dune 70 - Trailer Ufficiale AI"
-        loading="lazy"
-      ></iframe>
+    <div
+      id="lazy-video"
+      className="aspect-w-16 aspect-h-9 w-full rounded-lg overflow-hidden border border-primary-500 dark:border-primary-400"
+    >
+      {iframeLoaded ? (
+        <iframe
+          ref={iframeRef}
+          className="w-full h-full"
+          src="https://player.vimeo.com/video/1048620180?badge=0&autopause=0&player_id=0&app_id=58479"
+          allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          style={{ border: 'none' }}
+          title="Dune 70 - Trailer Ufficiale AI"
+          loading="lazy"
+        ></iframe>
+      ) : null}
     </div>
   );
 };
