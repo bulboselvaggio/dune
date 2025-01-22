@@ -15,6 +15,7 @@
     "@astrojs/tailwind": "^5.1.4",
     "@fontsource/inter": "5.0.8",
     "@types/alpinejs": "3.7.2",
+    "@vimeo/player": "^2.25.0",
     "alpinejs": "3.12.3",
     "astro": "^5.1.7",
     "astro-compress": "^2.3.6",
