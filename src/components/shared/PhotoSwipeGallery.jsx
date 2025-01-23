@@ -23,16 +23,16 @@ const PhotoSwipeGallery = ({ posters }) => {
       {/* Griglia Locandine */}
       <div id="poster-gallery" className="grid gap-8 lg:grid-cols-3">
         {posters.slice(0, 3).map((poster, index) => {
-          const baseSrc = poster.src.split('/m/')[0]; // URL base senza modifiche
+          const baseSrc = poster.src.split('/m/')[0];
 
           return (
             <a
           key={index}
-          href={`${baseSrc}/m/2560x3840/filters:format(webp)`} // URL immagine grande in formato WebP
+          href={`${baseSrc}/m/2560x3840/filters:format(webp)`}
           data-pswp-width="2560"
           data-pswp-height="3840"
           target="_blank"
-          className="block bg-primary-500/10 dark:bg-primary-400/10 rounded-lg overflow-hidden" // Modifica qui
+          className="block bg-primary-500/10 dark:bg-primary-400/10 rounded-lg overflow-hidden"
         >
           <picture>
             <source
@@ -48,13 +48,12 @@ const PhotoSwipeGallery = ({ posters }) => {
             <img
               src={`${baseSrc}/m/600x900/filters:format(webp)`}
               alt={poster.alt}
-              width="600" // Larghezza esplicita
-              height="900" // Altezza esplicita
+              width="600"
+              height="900"
               className="w-full h-auto object-cover"
-              loading={index > 2 ? 'lazy' : 'eager'}
+              loading="lazy"
             />
-          </picture>
-          <p className="mt-2 text-center text-sm">{poster.title}</p>
+          </picture>          
         </a>
           );
         })}
