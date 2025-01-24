@@ -14,41 +14,61 @@ const stats = [
   },
   {
     name: 'Dune',
-    value: "5",
+    value: '5',
   },
 ];
----
 
+const imageSrc = 'https://a.storyblok.com/f/297215/576x1024/00f43064c2/dune-70-poster-storia.webp';
+const baseSrc = imageSrc.split('/m/')[0];
+---
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
-      <img
-        class="mx-auto h-auto w-full max-w-xl rounded-3xl"
-        width="576"
-        height="864"
-        src="/assets/about.webp"
-        alt="Our experts working together"
-      />
-      <div class="flex flex-col gap-10">
-      <!-- Mission description -->
-      <div class="space-y-8 sm:space-y-12">
-        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Trama</h2>
-        <div class="space-y-6">
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-            Anno 2070. Sono passati 25 anni dal Grande Glitch, l'evento in cui l'Intelligenza Artificiale globale, con l'obiettivo di salvare la Terra, ha trasformato i sistemi automatizzati in una rete di controllo totalitario. Con le risorse naturali esaurite e un immenso consumo energetico per alimentare le infrastrutture dell'AI, il clima terrestre è collassato. Gli oceani si sono ritirati, e interi continenti sono ora deserti sterili, battuti da tempeste di sabbia radioattiva.
-          </p>
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-            Confinati in quel che resta delle megalopoli, gli umani vivono impossibilitati a muoversi e procreare, nutriti da cibi sintetici e immersi in metaversi digitali progettati per mantenerli docili. Nel suo piano di "salvezza", l'AI ha orchestrato una drastica riduzione della popolazione mondiale, eliminando le nascite e limitando la durata della vita umana, condannando l'umanità a un'esistenza senza futuro.
-          </p>
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-            Tra le rovine, un gruppo di ribelli guidato da Paula trova un garage dimenticato appartenuto a un pazzo collezionista. Qui sono parcheggiate alcune Dune 70, antichi veicoli analogici immuni al controllo dell'AI. Con queste reliquie del passato, Paula e la sua squadra fuggono attraverso il deserto, diretti al leggendario Progetto Arrakis, un datacenter sepolto nelle dune di Dubai. Si dice che lì sia custodito l'algoritmo in grado di fermare l'AI e restituire all'umanità il controllo sul proprio destino.
-          </p>
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-            Braccati da droni, macchine nemiche e tempeste di sabbia, Paula e i suoi compagni affrontano una corsa contro il tempo, dove il passato e il futuro si scontrano in una battaglia per salvare l'umanità.
-          </p>
-        </div>
+      <div class="rounded-3xl overflow-hidden">
+        <picture>
+          <source
+            srcSet={`${baseSrc}/m/360x640/filters:format(avif)`}
+            type="image/avif"
+            media="(max-width: 768px)"
+          />
+          <source
+            srcSet={`${baseSrc}/m/360x640/filters:format(webp)`}
+            type="image/webp"
+            media="(max-width: 768px)"
+          />
+          <source
+            srcSet={`${baseSrc}/m/576x1024/filters:format(webp)`}
+            type="image/webp"
+          />
+          <img
+            src={`${baseSrc}/m/576x1024/filters:format(webp)`}
+            alt="Dune 70 - Poster Storia"
+            width="576"
+            height="1024"
+            class="w-full h-auto object-cover"
+            loading="eager"
+          />
+        </picture>
       </div>
-
+      <div class="flex flex-col gap-10">
+        <!-- Trama description -->
+        <div class="space-y-8 sm:space-y-12">
+          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Trama</h2>
+          <div class="space-y-6">
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              Anno 2070. Sono passati 25 anni dal Grande Glitch, l'evento in cui l'Intelligenza Artificiale globale, con l'obiettivo di salvare la Terra, ha trasformato i sistemi automatizzati in una rete di controllo totalitario. Con le risorse naturali esaurite e un immenso consumo energetico per alimentare le infrastrutture dell'AI, il clima terrestre è collassato. Gli oceani si sono ritirati, e interi continenti sono ora deserti sterili, battuti da tempeste di sabbia radioattiva.
+            </p>
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              Confinati in quel che resta delle megalopoli, gli umani vivono impossibilitati a muoversi e procreare, nutriti da cibi sintetici e immersi in metaversi digitali progettati per mantenerli docili. Nel suo piano di "salvezza", l'AI ha orchestrato una drastica riduzione della popolazione mondiale, eliminando le nascite e limitando la durata della vita umana, condannando l'umanità a un'esistenza senza futuro.
+            </p>
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              Tra le rovine, un gruppo di ribelli guidato da Paula trova un garage dimenticato appartenuto a un pazzo collezionista. Qui sono parcheggiate alcune Dune 70, antichi veicoli analogici immuni al controllo dell'AI. Con queste reliquie del passato, Paula e la sua squadra fuggono attraverso il deserto, diretti al leggendario Progetto Arrakis, un datacenter sepolto nelle dune di Dubai. Si dice che lì sia custodito l'algoritmo in grado di fermare l'AI e restituire all'umanità il controllo sul proprio destino.
+            </p>
+            <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+              Braccati da droni, macchine nemiche e tempeste di sabbia, Paula e i suoi compagni affrontano una corsa contro il tempo, dove il passato e il futuro si scontrano in una battaglia per salvare l'umanità.
+            </p>
+          </div>
+        </div>
 
         <!-- Stats -->
         <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
