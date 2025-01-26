@@ -1,20 +1,23 @@
 ---
 import { Image } from 'astro:assets';
+import team1 from '../../assets/team-1.webp';
+import team2 from '../../assets/team-2.webp';
+import team3 from '../../assets/team-3.webp';
 
 const team = [
   {
     name: 'Martina Stellantis',
-    image: '/assets/team-1.webp',
+    image: team1,
     job: 'Paula',
   },
   {
     name: 'Timoteo Scialamella',
-    image: '/assets/team-2.webp',
+    image: team2,
     job: 'Lucas',
   },
   {
     name: 'Zeddaje',
-    image: '/assets/team-3.webp',
+    image: team3,
     job: 'Sanya',
   },
 ];
@@ -35,7 +38,7 @@ const team = [
                   height={64} 
                   class="mx-auto rounded-full"
                   loading="lazy" 
-                  inferSize
+                  format="webp" 
                 />
                 <div class="text-center">
                   <h3 class="text-lg font-medium">{item.name}</h3>
