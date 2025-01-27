@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactInfo from '../components/contact/ContactInfo.astro';
+
+const title = "DUNE 70 | Successo";
+const description = "Grazie per averci contattato! Il tuo messaggio è stato inviato con successo.";
+---
+
+<Layout title={title} description={description}>
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Grazie!</h2>
+        <p class="mt-4 text-lg text-primary-950/70 dark:text-primary-200/70">
+          Il tuo messaggio è stato inviato con successo. Ti risponderemo al più presto.
+        </p>
+        <a
+          href="/"
+          class="mt-6 bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 inline-flex items-center justify-center rounded-full border border-transparent px-5 py-3 text-base font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Torna alla Home
+        </a>
+      </div>
+    </div>
+  </section>
+  <ContactInfo />
+</Layout>

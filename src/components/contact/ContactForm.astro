@@ -4,12 +4,11 @@
       <div class="flex flex-col gap-4 sm:gap-6">
         <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Contattaci</h2>
         <p class="text-primary-950/70 dark:text-primary-200/70 max-w-lg text-lg sm:text-xl">
-          We'd love to learn more about you and what we can build together.
+          Se hai domande o vuoi sapere di più sul mondo di DUNE 70.
         </p>
       </div>
       <form
-        id="contact-form"
-        action="#"
+        action="/success"
         method="POST"
         data-netlify="true"
         name="contact-form"
@@ -63,48 +62,7 @@
             Submit
           </button>
         </div>
-        <!-- Success message -->
-        <p class="hidden text-green-600" id="form-success">
-          Thank you! Your message has been sent!
-        </p>
       </form>
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form") as HTMLFormElement | null;
-    const successMessage = document.getElementById("form-success");
-
-    if (!form || !successMessage) {
-      console.error("Form or success message not found.");
-      return;
-    }
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Blocca il comportamento predefinito del form
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch("/", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (response.ok) {
-          form.reset(); // Resetta il form
-          successMessage.classList.remove("hidden"); // Mostra il messaggio di successo
-          setTimeout(() => {
-            successMessage.classList.add("hidden"); // Nasconde il messaggio dopo 5 secondi
-          }, 5000);
-        } else {
-          alert("Si è verificato un problema. Riprova più tardi.");
-        }
-      } catch (error) {
-        alert("Errore di rete. Controlla la connessione e riprova.");
-      }
-    });
-  });
-</script>
