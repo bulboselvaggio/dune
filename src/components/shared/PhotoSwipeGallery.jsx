@@ -13,19 +13,33 @@ function extractDimensionsFromURL(url) {
 
 const PhotoSwipeGallery = ({ posters }) => {
   useEffect(() => {
-    import('photoswipe/style.css').then(() => {
-      const lightbox = new PhotoSwipeLightbox({
-        gallery: '#poster-gallery',
-        children: 'a',
-        pswpModule: () => import('photoswipe'),
-        preload: [1, 1], // Precarica una immagine prima e una dopo quella corrente
-      });
-      lightbox.init();
+    // Caricamento dinamico del CSS
+    const loadCSS = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.jsdelivr.net/npm/photoswipe@5.3.3/dist/photoswipe.css';
+      document.head.appendChild(link);
 
       return () => {
-        lightbox.destroy();
+        document.head.removeChild(link);
       };
+    };
+
+    // Inizializza PhotoSwipe Lightbox
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#poster-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+      preload: [1, 1], // Precarica una immagine prima e una dopo quella corrente
     });
+
+    lightbox.init();
+    const removeCSS = loadCSS();
+
+    return () => {
+      lightbox.destroy();
+      removeCSS(); // Rimuovi il CSS quando il componente viene smontato
+    };
   }, []);
 
   return (
@@ -35,7 +49,7 @@ const PhotoSwipeGallery = ({ posters }) => {
         {posters.map((poster, index) => {
           const baseSrc = poster.src.split('/m/')[0];
           const { width, height } = extractDimensionsFromURL(poster.src);
-  
+
           return (
             <a
               key={index}
@@ -75,7 +89,7 @@ const PhotoSwipeGallery = ({ posters }) => {
           );
         })}
       </div>
-  
+
       {/* Bottone Guarda Tutto */}
       <div className="flex justify-center">
         <button
@@ -89,7 +103,7 @@ const PhotoSwipeGallery = ({ posters }) => {
         </button>
       </div>
     </div>
-  ); 
+  );
 };
 
 export default PhotoSwipeGallery;
