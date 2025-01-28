@@ -21,6 +21,10 @@ const links = [
     href: '/contact',
   },
 ];
+
+// Determina se mostrare l'icona della freccia indietro
+const { pathname } = Astro.url;
+const showBackIcon = pathname !== '/';
 ---
 
 <header
@@ -29,10 +33,32 @@ const links = [
   :class="{'bg-primary-500/70 backdrop-blur-md dark:bg-primary-400/70': open || window.scrollY > 10, 'bg-transparent': !(open || window.scrollY > 10)}"
 >
   <div
-    class="mx-auto flex max-w-2xl items-center justify-end px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
+    class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
   >
+    <!-- Back Icon -->
+    <div>
+      {showBackIcon && (
+        <a
+          href="/"
+          class="text-primary-100 hover:bg-primary-500/10 dark:text-primary-200 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
+          aria-label="Torna alla home"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="h-6 w-6"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+        </a>
+      )}
+    </div>
+
     <!-- Actions -->
-    <div class="-mr-2 flex items-center space-x-2 sm:space-x-3">
+    <div class="flex items-center justify-end space-x-2 sm:space-x-3">
       <!-- Toggle theme mode -->
       <button
         type="button"
@@ -68,7 +94,6 @@ const links = [
           ></path>
         </svg>
       </button>
-
 
       <!-- Toggle menu -->
       <button
@@ -147,7 +172,6 @@ const links = [
           ))
         }
       </nav>
-      
     </div>
   </div>
 </header>
